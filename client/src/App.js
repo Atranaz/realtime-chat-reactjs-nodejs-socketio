@@ -1,38 +1,38 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import io from "socket.io-client";
+//import io from "socket.io-client";
 
 class App extends Component {
-  constructor(props){
-    super(props);
+//   constructor(props){
+//     super(props);
         
-        this.state = {
-            username: '',
-            message: '',
-            messages: []
-        };
-    this.socket = io('localhost:5000');
-    this.socket.on('RECEIVE_MESSAGE', function(data){
-      addMessage(data);
-  });
+//         this.state = {
+//             username: '',
+//             message: '',
+//             messages: []
+//         };
+//     this.socket = io('localhost:5000');
+//     this.socket.on('RECEIVE_MESSAGE', function(data){
+//       addMessage(data);
+//   });
 
-  const addMessage = data => {
-      console.log(data);
-      this.setState({messages: [...this.state.messages, data]});
-      console.log(this.state.messages);
-  };
+//   const addMessage = data => {
+//       console.log(data);
+//       this.setState({messages: [...this.state.messages, data]});
+//       console.log(this.state.messages);
+//   };
 
-  this.sendMessage = ev => {
-      ev.preventDefault();
-      this.socket.emit('SEND_MESSAGE', {
-          author: this.state.username,
-          message: this.state.message
-      })
-      this.setState({message: ''});
+//   this.sendMessage = ev => {
+//       ev.preventDefault();
+//       this.socket.emit('SEND_MESSAGE', {
+//           author: this.state.username,
+//           message: this.state.message
+//       })
+//       this.setState({message: ''});
 
-  }
-}
+//   }
+// }
   state = {
     response: '',
     post: '',
@@ -64,7 +64,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-         <div className="container">
+         {/* <div className="container">
                 <div className="row">
                     <div className="col-4">
                         <div className="card">
@@ -89,7 +89,7 @@ class App extends Component {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
         
         <p>{this.state.response}</p>
         <form onSubmit={this.handleSubmit}>
