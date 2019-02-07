@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-// var socket = require('socket.io');
+var socket = require('socket.io');
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -26,13 +26,13 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
-app.listen(port, () => console.log(`Listening on port ${port}`));
+const server = app.listen(port, () => console.log(`Listening on port ${port}`));
 
-// io = socket(server);
-// io.on('connection', (socket) => {
-//   console.log(socket.id);
+io = socket(server);
+io.on('connection', (socket) => {
+  console.log(socket.id);
 
-//   socket.on('SEND_MESSAGE', function(data){
-//     io.emit('RECEIVE_MESSAGE', data);
-// })
-// });
+  socket.on('SEND_MESSAGE', function(data){
+    io.emit('RECEIVE_MESSAGE', data);
+})
+});
