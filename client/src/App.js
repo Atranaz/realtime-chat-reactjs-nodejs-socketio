@@ -65,6 +65,7 @@ class App extends Component {
       <div className="App">
          <div className="container">
                 <div className="row">
+                    <div className="col-4"></div>
                     <div className="col-4">
                         <div className="card">
                             <div className="card-body">
@@ -89,20 +90,6 @@ class App extends Component {
                     </div>
                 </div>
             </div>
-        
-        <p>{this.state.response}</p>
-        <form onSubmit={this.handleSubmit}>
-          <p>
-            <strong>Post to Server:</strong>
-          </p>
-          <input
-            type="text"
-            value={this.state.post}
-            onChange={e => this.setState({ post: e.target.value })}
-          />
-          <button type="submit">Submit</button>
-        </form>
-        <p>{this.state.responseToPost}</p>
       </div>
     );
   }
