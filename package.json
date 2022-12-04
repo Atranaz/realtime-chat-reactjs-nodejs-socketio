@@ -9,8 +9,8 @@
     "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
   },
   "dependencies": {
-    "body-parser": "^1.18.3",
-    "express": "^4.16.4",
+    "body-parser": "^1.19.2",
+    "express": "^4.17.3",
     "socket.io": "^2.2.0"
   },
   "devDependencies": {
